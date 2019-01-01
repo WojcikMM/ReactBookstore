@@ -1,14 +1,16 @@
-import React from 'react';
+import React from "react";
+import BookView from './BookView';
 
+class Inventory extends React.Component {
+  render() {
 
-class Inventory extends React.Component{
+      const bookListing = this.props.books.map(book => {
+          return <BookView book={book}/>
+      });
 
-
-    render() {
-        return (
-            <div className="inventory col-xs-4">Inwentarz</div>
-        );
-    }
+      
+      return <div className="inventory col-xs-4">{bookListing}</div>;
+  }
 }
 
 export default Inventory;

@@ -36,7 +36,7 @@ class Header extends React.Component {
             backgroundColor: this.state.backgroundColor
         };
     return (
-      <div className="header" style={headerCss} onClick={this.handleClick}>
+      <div className="header col-xs-12" style={headerCss} onClick={this.handleClick}>
         <h1>{this.state.bookstoreName}</h1>
       </div>
     );

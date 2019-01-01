@@ -25,10 +25,30 @@ class AdminPanel extends React.Component {
     });
   }
 
+  addNewBook = (event) => {
+
+    event.preventDefault();
+    let newBook = { ...this.state.book };
+   
+    this.props.addBook(newBook);
+
+    this.setState({
+      book: {
+        name: "",
+        author: "",
+        description: "",
+        onStock: false,
+        image:""
+      }
+    })
+
+  }
+
+
   render() {
     return (
       <div className="admin-panel col-xs-4">
-        <form>
+        <form onSubmit={this.addNewBook}>
           <div className="form-group">
             <input
               type="text"

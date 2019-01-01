@@ -7,16 +7,32 @@ import Inventory from "./Inventory";
 import "../index.css";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      books: []
+    };
+  }
+
+  addNewBook = book => {
+    let newBooks = [...this.state.books];
+    console.log(newBooks);
+    newBooks.push(book);
+    this.setState({
+      books: newBooks
+    });
+  };
+
   render() {
     return (
       <div className=" container">
-        <Header />
-        <div className="app 
-        
-        row">
+        <div className="row">
+          <Header />
+        </div>
+        <div className="app row">
           <Order />
-          <Inventory />
-          <AdminPanel />
+          <Inventory books={this.state.books} />
+          <AdminPanel books={this.state.books} addBook={this.addNewBook} />
         </div>
       </div>
     );
