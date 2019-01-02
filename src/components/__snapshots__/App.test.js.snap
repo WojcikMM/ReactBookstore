@@ -26,9 +26,14 @@ ShallowWrapper {
         <div
           className="app row"
         >
-          <Order />
+          <Order
+            orders={Array []}
+            removeFromOrders={[Function]}
+          />
           <Inventory
+            addToOrder={[Function]}
             books={Array []}
+            removeFromOrder={[Function]}
           />
           <AdminPanel
             addBook={[Function]}
@@ -66,9 +71,14 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <Order />,
+            <Order
+              orders={Array []}
+              removeFromOrders={[Function]}
+            />,
             <Inventory
+              addToOrder={[Function]}
               books={Array []}
+              removeFromOrder={[Function]}
             />,
             <AdminPanel
               addBook={[Function]}
@@ -83,7 +93,10 @@ ShallowWrapper {
             "instance": null,
             "key": undefined,
             "nodeType": "class",
-            "props": Object {},
+            "props": Object {
+              "orders": Array [],
+              "removeFromOrders": [Function],
+            },
             "ref": null,
             "rendered": null,
             "type": [Function],
@@ -93,7 +106,9 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "addToOrder": [Function],
               "books": Array [],
+              "removeFromOrder": [Function],
             },
             "ref": null,
             "rendered": null,
@@ -132,9 +147,14 @@ ShallowWrapper {
           <div
             className="app row"
           >
-            <Order />
+            <Order
+              orders={Array []}
+              removeFromOrders={[Function]}
+            />
             <Inventory
+              addToOrder={[Function]}
               books={Array []}
+              removeFromOrder={[Function]}
             />
             <AdminPanel
               addBook={[Function]}
@@ -172,9 +192,14 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <Order />,
+              <Order
+                orders={Array []}
+                removeFromOrders={[Function]}
+              />,
               <Inventory
+                addToOrder={[Function]}
                 books={Array []}
+                removeFromOrder={[Function]}
               />,
               <AdminPanel
                 addBook={[Function]}
@@ -189,7 +214,10 @@ ShallowWrapper {
               "instance": null,
               "key": undefined,
               "nodeType": "class",
-              "props": Object {},
+              "props": Object {
+                "orders": Array [],
+                "removeFromOrders": [Function],
+              },
               "ref": null,
               "rendered": null,
               "type": [Function],
@@ -199,7 +227,9 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "addToOrder": [Function],
                 "books": Array [],
+                "removeFromOrder": [Function],
               },
               "ref": null,
               "rendered": null,
