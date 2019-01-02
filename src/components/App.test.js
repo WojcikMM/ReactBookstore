@@ -18,10 +18,7 @@ describe("App tests", () => {
       const wrapper = shallow(<App />);
     expect(wrapper.find('Header').exists()).toBe(true);
     expect(wrapper.find('Order').exists()).toBe(true);
-    expect(wrapper.find('Inventory').exists()).toBe(true);
-    expect(wrapper.find('AdminPanel').exists()).toBe(true);
-
-    
+    expect(wrapper.find('Inventory').exists()).toBe(true);    
   });
 
   it("Snapshot warches renders", () => {

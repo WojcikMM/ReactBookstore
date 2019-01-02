@@ -1,4 +1,5 @@
 import React from "react";
+import { fbase } from '../fbase';
 
 class AdminPanel extends React.Component {
   constructor() {
@@ -18,6 +19,7 @@ class AdminPanel extends React.Component {
 
 
     this.setState({
+      books: [],
       book: {
         ...this.state.book,
         [event.target.name]: event.target.name === "onStock" ? event.target.checked : event.target.value
@@ -29,10 +31,10 @@ class AdminPanel extends React.Component {
 
     event.preventDefault();
     let newBook = { ...this.state.book };
-   
-    this.props.addBook(newBook);
+  
 
     this.setState({
+      books: [...this.state.books,newBook],
       book: {
         name: "",
         author: "",
@@ -41,7 +43,17 @@ class AdminPanel extends React.Component {
         image:""
       }
     })
+  }
 
+  componentDidMount() {
+    this.ref=fbase.syncState('bookstore/books', {
+      context: this,
+      state: 'books'
+    });
+  }
+
+  componentWillUnmount() {
+    fbase.removeBinding(this.ref);
   }
 
 
