@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
   constructor() {
@@ -38,6 +39,7 @@ class Header extends React.Component {
     return (
       <div className="header col-xs-12" style={headerCss} onClick={this.handleClick}>
         <h1>{this.state.bookstoreName}</h1>
+        <Link to="/admin">Go to admin panel</Link>
       </div>
     );
   }

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import AdminPanel from "./AdminPanel";
 import Order from "./Order";
 import Header from "./Header";
 import Inventory from "./Inventory";
@@ -10,18 +9,22 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      books: []
+      order:[]
     };
   }
 
-  addNewBook = book => {
-    let newBooks = [...this.state.books];
-    console.log(newBooks);
-    newBooks.push(book);
+  addToOrder = (book) => {
     this.setState({
-      books: newBooks
-    });
-  };
+      order: [...this.state.order,book]
+    })
+  }
+
+  removeFromOrder = (bookTitle) => {
+    this.setState({
+      order: this.state.order.filter(book => book.name !== bookTitle)
+    })
+  }
+
 
   render() {
     return (
@@ -30,9 +33,8 @@ class App extends Component {
           <Header />
         </div>
         <div className="app row">
-          <Order />
-          <Inventory books={this.state.books} />
-          <AdminPanel books={this.state.books} addBook={this.addNewBook} />
+          <Order orders={this.state.order} removeFromOrders={this.removeFromOrder} />
+          <Inventory books={this.state.books} addToOrder={this.addToOrder} removeFromOrder={this.removeFromOrder} />
         </div>
       </div>
     );
