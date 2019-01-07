@@ -44,7 +44,8 @@ class AdminPanel extends React.Component {
       .then(() => {
         this.setState({
           loggedIn: true
-        })
+        });
+        localStorage.setItem("loggedIn", true);
       }).catch((err) => {
         console.log('Unable to authenicate.',err);
     })
@@ -73,6 +74,13 @@ class AdminPanel extends React.Component {
   }
 
   componentDidMount() {
+
+    if (localStorage.getItem("loggedIn")) {
+      this.setState({
+        loggedIn: localStorage.getItem("loggedIn")
+      });
+    }
+
     this.ref=fbase.syncState('bookstore/books', {
       context: this,
       state: 'books'
