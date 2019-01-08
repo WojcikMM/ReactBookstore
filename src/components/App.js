@@ -1,44 +1,45 @@
-import React, { Component } from "react";
-import Order from "./Order";
-import Header from "./Header";
-import Inventory from "./Inventory";
+import React from 'react';
+import Order from './Order';
+import Header from './Header';
+import Inventory from './Inventory';
 
-import "../index.css";
+import '../index.css';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      order:[]
-    };
-  }
+class App extends React.Component {
 
-  addToOrder = (book) => {
-    this.setState({
-      order: [...this.state.order,book]
-    })
-  }
-
-  removeFromOrder = (bookTitle) => {
-    this.setState({
-      order: this.state.order.filter(book => book.name !== bookTitle)
-    })
-  }
+    constructor() {
+        super();
+        this.state = {
+            order : []
+        }
+    }
 
 
-  render() {
-    return (
-      <div className=" container">
-        <div className="row">
-          <Header />
-        </div>
-        <div className="app row">
-          <Order orders={this.state.order} removeFromOrders={this.removeFromOrder} />
-          <Inventory books={this.state.books} addToOrder={this.addToOrder} removeFromOrder={this.removeFromOrder} />
-        </div>
-      </div>
-    );
-  }
+    addToOrder = (book) => {
+        this.setState({
+            order : [...this.state.order, book]
+        })
+    }
+
+    removeFromOrder = (title) => {
+        this.setState({
+            order : this.state.order.filter( book => title!==book.name )
+        })
+    }
+
+    render() {
+        return (
+            <div className="app container">
+                <Header />
+                <div className="row">
+                    <Order order={this.state.order} removeFromOrder={this.removeFromOrder}/>
+                    <Inventory books={this.state.books} addToOrder={this.addToOrder}/>
+                </div>
+            </div>
+        )
+    }
+
 }
+
 
 export default App;

@@ -1,5 +1,5 @@
-import Rebase from 're-base';
-import firebase from 'firebase';
+import Rebase from "re-base";
+import firebase from "firebase";
 
 var firebaseApp = firebase.initializeApp({
     apiKey: "AIzaSyCA_Uw00Faz9nMt1SQgBK1w3AEtzowT_LY",
@@ -9,9 +9,11 @@ var firebaseApp = firebase.initializeApp({
     storageBucket: "clockwork-bookstore-22df8.appspot.com",
     messagingSenderId: "998884734700"
 });
-  
+
 const fbase = Rebase.createClass(firebaseApp.database());
 
-export { fbase, firebaseApp };
+
+export {fbase, firebaseApp};
+
 
 
